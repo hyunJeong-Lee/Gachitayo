@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/hssaemaul_regular"
+        android:gravity="center"
+        android:text="같이 탈 친구를 찾고 있습니다..."
+        android:textSize="30dp" />
+
+    <ImageView
+        android:id="@+id/gif_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="bottom">
+
+        <TextView
+            android:id="@+id/tv_time_match"
+            style="@style/textStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:drawableStart="@drawable/ic_baseline_access_time_24"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tv_start_match"
+            style="@style/textStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:drawableStart="@drawable/ic_baseline_location_on_24"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tv_end_match"
+            style="@style/textStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:drawableStart="@drawable/ic_baseline_location_on_24"
+            android:textColor="@color/black" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_recommend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:text="⭐추천리스트를 볼래요!"
+            android:fontFamily="@font/hssaemaul_regular"
+            android:backgroundTint="@color/light_gray"
+            android:background="@drawable/round_btn"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_matchCancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/main_color"
+            android:fontFamily="@font/gmarketsansttfbold"
+            android:minWidth="0dp"
+            android:text="매칭 취소"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+    </LinearLayout>
+</FrameLayout>

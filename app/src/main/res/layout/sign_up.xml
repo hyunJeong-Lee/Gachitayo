@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/signUp_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.7"
+        android:text="back"
+        android:textColor="@color/gray"
+        android:textSize="20dp"
+        android:layout_margin="20dp"/>
+
+    <LinearLayout
+        android:layout_margin="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/signUp_tv1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/hssaemaul_regular"
+            android:gravity="center"
+            android:text="회원가입"
+            android:textColor="@color/black"
+            android:textSize="40dp" />
+
+        <EditText
+            android:id="@+id/signUp_etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:hint="이름을 입력하세요" />
+
+        <EditText
+            android:id="@+id/signUp_etId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="아이디를 입력하세요" />
+
+        <EditText
+            android:id="@+id/signUp_etPw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="비밀번호를 입력하세요" />
+
+        <EditText
+            android:id="@+id/signUp_etPwRe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="비밀번호를 다시 입력하세요" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/signUp_btnSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="80dp"
+            android:background="@drawable/round_btn"
+            android:text="회원가입"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/main_color"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/hssaemaul_regular"
+            android:text="가치타요!" />
+    </LinearLayout>
+</FrameLayout>

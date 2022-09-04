@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="textStyle">
+        <item name="android:textSize">30dp</item>
+        <item name="fontFamily">@font/hssaemaul_regular</item>
+    </style>
+    <style name="textStyle2">
+        <item name="fontFamily">@font/gmarketsansttflight</item>
+    </style>
+    <style name="textStyle2_bold">
+        <item name="fontFamily">@font/gmarketsansttfbold</item>
+    </style>
+    <style name="AlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:colorAccent">@color/black</item>
+        <item name="android:background">@color/white</item>
+    </style>
+</resources>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_baseline_access_time_24"
+            android:textColor="@color/black"
+            style="@style/textStyle"/>
+        <TextView
+            android:id="@+id/tv_start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:drawableStart="@drawable/ic_baseline_location_on_24"
+            android:textColor="@color/black"
+            style="@style/textStyle"/>
+        <TextView
+            android:id="@+id/tv_end"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:drawableStart="@drawable/ic_baseline_location_on_24"
+            android:textColor="@color/black"
+            style="@style/textStyle"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="출발지와 목적지를 설정해주세요"
+            android:gravity="right"
+            android:layout_marginTop="100dp"
+            style="@style/textStyle2"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/light2_gray"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="50dp">
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="출발지 설정"
+                android:background="@drawable/round_btn"
+                android:backgroundTint="@color/light_gray"
+                android:layout_marginRight="20dp"
+                style="@style/textStyle2_bold"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="출발지 설정"
+                android:background="@drawable/round_btn"
+                android:backgroundTint="@color/light_gray"
+                style="@style/textStyle2_bold"
+                />
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="시간을 설정해주세요"
+            android:gravity="right"
+            style="@style/textStyle2"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/light2_gray"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="시간 설정"
+            android:backgroundTint="@color/light_gray"
+            android:background="@drawable/round_btn"
+            style="@style/textStyle2_bold"/>
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_matching"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/main_color"
+        android:fontFamily="@font/gmarketsansttfbold"
+        android:minWidth="0dp"
+        android:text="매칭 시작"
+        android:textColor="@color/white"
+        android:textSize="18dp" />
+</FrameLayout>
