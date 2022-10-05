@@ -18,8 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/ic_baseline_access_time_24"
-            android:textColor="@color/black"
-            style="@style/textStyle"/>
+            android:textSize="20dp"
+            style="@style/textStyle2_bold"/>
         <TextView
             android:id="@+id/tv_start"
             android:layout_width="match_parent"
@@ -27,7 +27,8 @@
             android:layout_marginTop="10dp"
             android:drawableStart="@drawable/ic_baseline_location_on_24"
             android:textColor="@color/black"
-            style="@style/textStyle"/>
+            android:textSize="20dp"
+            style="@style/textStyle2_bold"/>
         <TextView
             android:id="@+id/tv_end"
             android:layout_width="match_parent"
@@ -35,7 +36,17 @@
             android:layout_marginTop="10dp"
             android:drawableStart="@drawable/ic_baseline_location_on_24"
             android:textColor="@color/black"
-            style="@style/textStyle"/>
+            android:textSize="20dp"
+            style="@style/textStyle2_bold"/>
+        <TextView
+            android:id="@+id/tv_roadAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/light3_gray"
+            android:layout_marginLeft="20dp"
+            style="@style/textStyle2"
+            />
+
 
         <TextView
             android:layout_width="match_parent"
@@ -73,7 +84,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="출발지 설정"
+                android:text="목적지 설정"
                 android:background="@drawable/round_btn"
                 android:backgroundTint="@color/light_gray"
                 style="@style/textStyle2_bold"

@@ -25,43 +25,47 @@
 
         <TextView
             android:id="@+id/tv_time_match"
-            style="@style/textStyle"
+            style="@style/textStyle2_bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:drawableStart="@drawable/ic_baseline_access_time_24"
+            android:textSize="20dp"
             android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/tv_start_match"
-            style="@style/textStyle"
+            style="@style/textStyle2_bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
             android:drawableStart="@drawable/ic_baseline_location_on_24"
+            android:textSize="20dp"
             android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/tv_end_match"
-            style="@style/textStyle"
+            style="@style/textStyle2_bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginBottom="50dp"
             android:drawableStart="@drawable/ic_baseline_location_on_24"
+            android:textSize="20dp"
             android:textColor="@color/black" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_recommend"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="20dp"
-            android:text="⭐추천리스트를 볼래요!"
-            android:fontFamily="@font/hssaemaul_regular"
-            android:backgroundTint="@color/light_gray"
-            android:background="@drawable/round_btn"/>
+<!--        <androidx.appcompat.widget.AppCompatButton-->
+<!--            android:id="@+id/btn_recommend"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_margin="20dp"-->
+<!--            android:text="⭐추천리스트를 볼래요!"-->
+<!--            android:fontFamily="@font/hssaemaul_regular"-->
+<!--            android:backgroundTint="@color/light_gray"-->
+<!--            android:background="@drawable/round_btn"/>-->
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_matchCancel"

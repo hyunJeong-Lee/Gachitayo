@@ -15,4 +15,11 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
+    <style name="CustomTimePicker">
+        <item name="android:textColor">@color/main_color</item>
+        <item name="android:colorControlNormal">@color/main_color</item>
+        <item name="android:textSize">22dp</item>
+        <item name="android:fontFamily">@font/hssaemaul_regular</item>
+    </style>
 </resources>

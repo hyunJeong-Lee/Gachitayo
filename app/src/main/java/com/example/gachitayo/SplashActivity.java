@@ -15,9 +15,8 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
-
         ImageView splash = (ImageView) findViewById(R.id.splash_img);
-        Glide.with(this).load(R.drawable.gif_img).into(splash);
+        Glide.with(this).load(R.drawable.taxi_gif).into(splash);
 
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
@@ -27,6 +26,6 @@ public class SplashActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        }, 3500);
+        }, 3000);
     }
 }

@@ -39,13 +39,45 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:hint="이름을 입력하세요" />
-
-        <EditText
-            android:id="@+id/signUp_etId"
+        <TextView
+            android:id="@+id/signUp_tvname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="아이디를 입력하세요" />
+            android:textColor="@color/gray"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/signUp_etId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="9"
+                android:layout_marginTop="10dp"
+                android:hint="아이디를 입력하세요" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/SignUp_btnIdCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="확인"
+                android:layout_gravity="right"
+                android:gravity="center"
+                android:background="@drawable/round_btn"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/light3_gray"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/signUp_tvid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray"
+            />
+
 
         <EditText
             android:id="@+id/signUp_etPw"
@@ -60,6 +92,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:hint="비밀번호를 다시 입력하세요" />
+        <TextView
+            android:id="@+id/signUp_tvPw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray"
+            />
+
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/signUp_btnSignUp"
