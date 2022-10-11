@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class RetrofitClient {
     public static RetrofitService getApiService(){
@@ -14,7 +15,8 @@ public class RetrofitClient {
     private static Retrofit getInstance(){
         Gson gson = new GsonBuilder().setLenient().create();
         return new Retrofit.Builder()
-                .baseUrl("http://192.168.0.191:80")
+                .baseUrl("http://10.9.119.173:8088")
+                .addConverterFactory(ScalarsConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
     }

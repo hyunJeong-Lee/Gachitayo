@@ -83,11 +83,13 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(LoginActivity.this, "비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show();
                                 Log.i("leehj", "비밀번호 없음.");
                             }
+                            else{
+                                Toast.makeText(LoginActivity.this, "다시 입력해주세요.", Toast.LENGTH_SHORT).show();
+
+                            }
                         }
                     }
-
                 }
-
                 @Override
                 public void onFailure(Call<UserDto> call, Throwable t) {
                     Log.i("leehj", "POST 실패__"+t.getMessage());

@@ -15,6 +15,9 @@ import com.example.gachitayo.Retrofit_APIs.RetrofitClient;
 import com.example.gachitayo.function.SignUp_Function;
 import com.example.gachitayo.vo.UserVo;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -103,9 +106,11 @@ public class SignUpActivity extends AppCompatActivity {
 
     //아이디 중복 확인
     public void check_id(String id) {
-        UserVo uservo = new UserVo(id);
+//        UserVo uservo = new UserVo(id);
+        Map<String, String> request_id = new HashMap<>();
+        request_id.put("id", id);
 
-        Call<Integer> func = RetrofitClient.getApiService().idCheck(uservo);
+        Call<Integer> func = RetrofitClient.getApiService().idCheck(request_id);
         func.enqueue(new Callback<Integer>() {
             @Override
             public void onResponse(Call<Integer> call, Response<Integer> response) {
@@ -144,7 +149,7 @@ public class SignUpActivity extends AppCompatActivity {
                             tv_id.setText("이미 사용중인 닉네임 입니다.");
                         }
                     }
-                }, 500); //0.5초 딜레이 준 후 실행
+                }, 1000); //0.5초 딜레이 준 후 실행
             }
         }
     }

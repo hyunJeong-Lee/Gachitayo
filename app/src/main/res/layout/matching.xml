@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="20dp"
+        android:backgroundTint="@color/main_color"
+        android:layout_marginTop="-30dp"
+        android:clickable = "false"
+        android:focusable="false"
+        android:checkable="false">
+    <LinearLayout
+        android:layout_margin="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -11,9 +27,22 @@
         android:gravity="center"
         android:text="같이 탈 친구를 찾고 있습니다..."
         android:textSize="30dp" />
+    <TextView
+        android:id="@+id/tv_matching_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/hssaemaul_regular"
+        android:textSize="20dp"
+        android:text="0명이 모였습니다."
+        android:layout_gravity="center"/>
+    </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
 
     <ImageView
         android:id="@+id/gif_image"
+        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

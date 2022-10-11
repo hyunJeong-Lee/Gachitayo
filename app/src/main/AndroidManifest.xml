@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Gachitayo"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".MatchingSuccessActivity"
+            android:exported="true" />
+        <activity
             android:name=".map.Fragment"
             android:exported="false" />
 
