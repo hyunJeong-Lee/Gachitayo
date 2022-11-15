@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/round_back">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_back"
+        android:orientation="vertical"
+        android:paddingLeft="30dp"
+        android:paddingTop="30dp"
+        android:paddingRight="30dp"
+        android:paddingBottom="20dp">
+
+        <TextView
+            android:id="@+id/customDialog_tv2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:fontFamily="@font/gmarketsansttfbold"
+            android:textColor="@color/black"
+            />
+
+        <TextView
+            android:id="@+id/customDialog_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/gmarketsansttfbold"
+            android:text="내용을 입력해주세요"
+            android:textColor="@color/gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/customDialog_ok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:backgroundTint="@color/main_color2"
+                android:fontFamily="@font/gmarketsansttfbold"
+                android:text="OK"
+                android:textColor="@color/white"
+                android:textSize="11dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/customDialog_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/light_gray"
+                android:fontFamily="@font/gmarketsansttfbold"
+                android:text="CANCEL"
+                android:textColor="@color/gray"
+                android:textSize="11dp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

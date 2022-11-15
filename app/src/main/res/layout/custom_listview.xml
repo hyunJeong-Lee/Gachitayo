@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="10dp"
+    android:backgroundTint="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:id="@+id/list_placeName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="하나은행 천안지점"
+            android:textSize="20dp"
+            />
+        <TextView
+            android:id="@+id/list_cateGroupName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="은행"
+            android:layout_marginLeft="10dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        >
+        <TextView
+            android:id="@+id/list_road_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="충남 천안시 동남수 영성로 43"
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="(지번) "
+                android:textColor="@color/light3_gray"
+                />
+            <TextView
+                android:id="@+id/list_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="사직동 171-1"
+                android:textColor="@color/light3_gray"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

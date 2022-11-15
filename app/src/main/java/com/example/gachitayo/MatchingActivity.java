@@ -1,5 +1,6 @@
 package com.example.gachitayo;
 
+import static android.util.Log.e;
 import static android.util.Log.i;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -21,12 +23,19 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.gachitayo.Retrofit_APIs.RetrofitClient;
 import com.example.gachitayo.vo.MatchingDto;
+import com.example.gachitayo.vo.ResponseDto;
 import com.example.gachitayo.vo.MatchingVo;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.JsonParser;
+
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -69,7 +78,7 @@ public class MatchingActivity extends AppCompatActivity {
 //        recomm.setOnClickListener(click_recomm);
 
         peoplecountTimer.start();
-        matchingcountTimer.start();
+//        matchingcountTimer.start();
 
         cancel = (Button) findViewById(R.id.btn_matchCancel);
         cancel.setOnClickListener(click_cancel);
@@ -83,7 +92,7 @@ public class MatchingActivity extends AppCompatActivity {
 //        }
 //    };
 
-    CountDownTimer peoplecountTimer = new CountDownTimer(1000 * 60 * 5, 1000) { //1000 * 60 * 5
+    CountDownTimer peoplecountTimer = new CountDownTimer(1000 * 60 * 3, 1000) { //1000 * 60 * 5
         @Override
         public void onTick(long l) {
             //반복 실행 구문
@@ -94,6 +103,49 @@ public class MatchingActivity extends AppCompatActivity {
                     count = (TextView) findViewById(R.id.tv_matching_count);
                     count.setText(response.body() + "명이 모였습니다.");
                     Log.i("leehj", "count: " + response.body());
+
+
+                    //3명이 모이면
+                    if (response.body() == 3) {
+                        peoplecountTimer.cancel(); //타이머 종료
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+
+                                Call<List<ResponseDto>> func = RetrofitClient.getApiService().matching_Result(request_id);
+                                func.enqueue(new Callback<List<ResponseDto>>() {
+                                    @Override
+                                    public void onResponse(Call<List<ResponseDto>> call, Response<List<ResponseDto>> response) {
+                                        List<ResponseDto> result_list = response.body();
+                                        ResponseDto result_dto = result_list.get(0);
+
+                                        Log.e("leehj", "0번째 result dto :" + result_dto.toString());
+
+                                        ArrayList<String> name_array = new ArrayList<>();
+                                        for (int i = 0; i < result_list.size(); i++) {
+                                            name_array.add(result_list.get(i).getName());
+                                        }
+
+                                        intent = new Intent(MatchingActivity.this, MatchingSuccessActivity.class);
+                                        intent.putExtra("result", result_dto); //출발지, 목적지, 시간을 입력하기 위함
+                                        intent.putExtra("names", name_array); //매칭 사용자 이름으르 배열로 넘겨주기
+                                        Toast.makeText(MatchingActivity.this, "매칭에 성공했습니다!", Toast.LENGTH_SHORT).show();
+                                        startActivity(intent);
+                                        finish();
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<List<ResponseDto>> call, Throwable t) {
+
+                                    }
+                                });
+
+                            }
+                        }, 1000 * 10); //10초 딜레이 준 후 실행
+
+                    }
+
+
                 }
 
                 @Override
@@ -106,56 +158,66 @@ public class MatchingActivity extends AppCompatActivity {
         @Override
         public void onFinish() {
             //마지막 실행 구문
-
-        }
-    };
-
-    CountDownTimer matchingcountTimer = new CountDownTimer(1000 * 60 * 5, 1000) { //1000 * 60 * 5
-        @Override
-        public void onTick(long l) {
-            //반복 실행 구문
-            Call<Map<String, String>> func = RetrofitClient.getApiService().matching_Result(request_id);
-            func.enqueue(new Callback<Map<String, String>>() {
-                @Override
-                public void onResponse(Call<Map<String, String>> call, Response<Map<String, String>> response) {
-                    String result = response.body().get("result");
-                    Log.i("leehj", "matching result : " + result);
-
-                    //매칭에 성공하면
-                    if (result.equals("Matching Success!")) {
-                        peoplecountTimer.cancel();
-                        matchingcountTimer.cancel();
-                        Toast.makeText(MatchingActivity.this, "매칭에 성공했습니다!", Toast.LENGTH_SHORT).show();
-                        String group = response.body().get("group");
-
-                        try {
-                            List<MatchingDto> mapping_response = objectMapping(group);
-                            intent = new Intent(MatchingActivity.this, MatchingSuccessActivity.class);
-                            intent.putExtra("group", (Serializable) mapping_response);
-                            startActivity(intent);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<Map<String, String>> call, Throwable t) {
-                    Log.i("leehj", "matching result : " + t);
-                }
-            });
-        }
-
-        @Override
-        public void onFinish() {
-            //마지막 실행 구문. 매칭 실패 다이얼로그 출력
             timeover();
         }
     };
 
-    private List<MatchingDto> objectMapping(String jsonStr) throws IOException {
+    //매칭 설공 시 매칭 정보 요청
+    public void matchingSuccessRequest(Map<String, String> request_id) {
+
+    }
+
+
+//    CountDownTimer matchingcountTimer = new CountDownTimer(1000 * 60 * 3, 1000) { //1000 * 60 * 5
+//        @Override
+//        public void onTick(long l) {
+//            MatchingDto matchingDto = new MatchingDto();
+//            //반복 실행 구문
+//            Call<List<ResponseDto>> func = RetrofitClient.getApiService().matching_Result(request_id);
+//            func.enqueue(new Callback<List<ResponseDto>>() {
+//                @Override
+//                public void onResponse(Call<List<ResponseDto>> call, Response<List<ResponseDto>> response) {
+//                    boolean result =response.body().get(0).getSucess();
+//                    Log.i("leehj", "matching result (getSuccess) : " + result);
+//
+//                    //매칭에 성공하면
+//                    if (result) {
+//                        Toast.makeText(MatchingActivity.this, "매칭에 성공했습니다!", Toast.LENGTH_SHORT).show();
+//                        peoplecountTimer.cancel();
+//                        matchingcountTimer.cancel();
+//
+//                        ArrayList<String> name_array = new ArrayList<>();
+//                        List<ResponseDto> dto_list = response.body();
+//                        for(int i=0; i<dto_list.size();i++){
+//                            name_array.add(dto_list.get(i).getName());
+//                        }
+//
+//                        intent = new Intent(MatchingActivity.this, MatchingSuccessActivity.class);
+//                        intent.putExtra("result", response.body().get(0)); //출발지, 목적지, 시간을 입력하기 위함
+//                        intent.putExtra("names", name_array); //매칭 사용자 이름으르 배열로 넘겨주기
+//                        startActivity(intent);
+//                    }
+//                }
+//
+//                @Override
+//                public void onFailure(Call<List<ResponseDto>> call, Throwable t) {
+//                    Log.i("leehj", "matching result : " + t);
+//                }
+//            });
+//        }
+//
+//        @Override
+//        public void onFinish() {
+//            //마지막 실행 구문. 매칭 실패 다이얼로그 출력
+//            timeover();
+//        }
+//    };
+
+    private List<ResponseDto> objectMapping(String jsonStr) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        List<MatchingDto> result = mapper.readValue(jsonStr, new TypeReference<List<MatchingDto>>(){});
+        List<ResponseDto> result = mapper.readValue(jsonStr, new TypeReference<List<ResponseDto>>() {
+        });
+        Log.i("leehj", "-------------------mapping result : " + result.toString());
         return result;
     }
 
@@ -197,14 +259,14 @@ public class MatchingActivity extends AppCompatActivity {
                     }
                 });
                 peoplecountTimer.cancel();
-                matchingcountTimer.cancel();
+//                matchingcountTimer.cancel();
                 Toast.makeText(MatchingActivity.this, "매칭을 취소합니다.", Toast.LENGTH_LONG).show();
                 dialog.dismiss();
                 finish();
             }
-    });
+        });
         dialog.show();
-}
+    }
 
     //매칭 취소 버튼 클릭
     View.OnClickListener click_cancel = new View.OnClickListener() {
@@ -234,7 +296,7 @@ public class MatchingActivity extends AppCompatActivity {
                         }
                     });
                     peoplecountTimer.cancel();
-                    matchingcountTimer.cancel();
+//                    matchingcountTimer.cancel();
                     Toast.makeText(MatchingActivity.this, "매칭을 취소합니다.", Toast.LENGTH_LONG).show();
                     dialog.dismiss();
                     finish();

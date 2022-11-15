@@ -14,7 +14,7 @@
         android:roundIcon="@mipmap/rabbit_icon2_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Gachitayo"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true" >
         <activity
             android:name=".MatchingSuccessActivity"
             android:exported="true" />
@@ -43,7 +43,7 @@
             android:exported="false" />
         <activity
             android:name=".MatchingActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".SignUpActivity"
             android:exported="true" />

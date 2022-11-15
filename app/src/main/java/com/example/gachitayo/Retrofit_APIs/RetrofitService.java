@@ -1,8 +1,11 @@
 package com.example.gachitayo.Retrofit_APIs;
+import com.example.gachitayo.vo.MatchingDto;
 import com.example.gachitayo.vo.MatchingVo;
+import com.example.gachitayo.vo.ResponseDto;
 import com.example.gachitayo.vo.UserDto;
 import com.example.gachitayo.vo.UserVo;
 
+import java.util.List;
 import java.util.Map;
 
 import retrofit2.Call;
@@ -43,7 +46,7 @@ public interface RetrofitService {
 
     //매칭 결과
     @POST("/api/match/group")
-    Call<Map<String, String>> matching_Result(@Body Map<String, String> id);
+    Call<List<ResponseDto>> matching_Result(@Body Map<String, String> id);
 
     //매칭 취소
     @POST("/api/match/cancel-matching")

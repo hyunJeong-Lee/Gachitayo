@@ -5,20 +5,17 @@ import com.google.gson.GsonBuilder;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.converter.scalars.ScalarsConverterFactory;
 
-public class RetrofitClient {
-    public static RetrofitService getApiService(){
-        return getInstance().create(RetrofitService.class);
+public class KakaoAPIClient {
+    public static KakaoAPIService getApiService(){
+        return getInstance().create(KakaoAPIService.class);
     }
 
     private static Retrofit getInstance(){
         Gson gson = new GsonBuilder().setLenient().create();
         return new Retrofit.Builder()
-                .baseUrl("http://172.30.1.60:8088")
-                .addConverterFactory(ScalarsConverterFactory.create())
+                .baseUrl("https://dapi.kakao.com/")
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
     }
-
 }
